@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/dashboard"
+            android:icon="@drawable/ic_dashboard"
+            android:title="Dashboard"/>
+        <item android:id="@+id/workouts"
+            android:icon="@drawable/ic_search"
+            android:title="Workouts"/>
+        <item android:id="@+id/Exersice_Guide"
+            android:icon="@drawable/ic_explainer"
+            android:title="Exercise Guide"/>
+        <item android:id="@+id/Manage_My_Workouts"
+            android:icon="@drawable/ic_manage_workout"
+            android:title="Manage My Workouts"/>
+        <item android:id="@+id/Workout_Log"
+            android:icon="@drawable/ic_workouts_log"
+            android:title="Workout Log"/>
+
+
+    </group>
+
+    <item android:title="">
+        <menu>
+            <item android:id="@+id/My_Profile"
+                android:icon="@drawable/ic_profile"
+                android:title="My_Profile"/>
+            <item android:id="@+id/Settings"
+                android:icon="@drawable/ic_settings"
+                android:title="Settings"/>
+            <item android:id="@+id/Sign_Out"
+                android:icon="@drawable/ic_exit"
+                android:title="Sign out"/>
+
+
+        </menu>
+
+    </item>
+</menu>
