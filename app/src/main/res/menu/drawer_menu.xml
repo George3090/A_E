@@ -10,7 +10,7 @@
         <item android:id="@+id/workouts"
             android:icon="@drawable/ic_search"
             android:title="Workouts"/>
-        <item android:id="@+id/Exersice_Guide"
+        <item android:id="@+id/exersice_guide"
             android:icon="@drawable/ic_explainer"
             android:title="Exercise Guide"/>
         <item android:id="@+id/Manage_My_Workouts"

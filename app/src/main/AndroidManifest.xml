@@ -10,10 +10,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Aesthetics_Enginers">
-        <activity android:name=".User_Account.ForgotPassword"></activity>
-
+        <activity android:name=".Workout_Log"></activity>
+        <activity android:name=".Manage_My_Workouts" />
+        <activity android:name=".Exercise_Guide" />
+        <activity android:name=".Workouts" />
+        <activity android:name=".User_Account.ForgotPassword" />
         <activity android:name=".User_Account.Register" />
-        <activity android:name=".User_Account.Login" >
+        <activity android:name=".User_Account.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

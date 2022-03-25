@@ -1,50 +1,32 @@
 package com.example.aesthetics_enginers;
 
-import android.app.ActionBar;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.Gravity;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.app.ActionBar;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.viewpager.widget.ViewPager;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.example.aesthetics_enginers.User_Account.Login;
-import com.example.aesthetics_enginers.Utility.SlideAdapter;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.FirebaseFirestore;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    private FirebaseFirestore mDb;
+public class Exercise_Guide extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout drawer;
-    private ViewPager viewPager;
-    private SlideAdapter myadapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        mDb = FirebaseFirestore.getInstance();
-
-        //SLider
-        viewPager = (ViewPager) findViewById(R.id.view_pager);
-        myadapter = new SlideAdapter(this);
-        viewPager.setAdapter(myadapter);
+        setContentView(R.layout.activity_exercise__guide);
+        //Changing the title of the action bar
+        this.setTitle("Workouts");
 
         //Changing the title of the action bar
-        this.setTitle("Dashboard");
+        this.setTitle("Exercise Guide");
 
         //Nav Menu
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -57,8 +39,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-    }
 
+
+    }
 
     @Override
     public void onBackPressed() {
@@ -72,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     /*
-        Navigation Menu this will be redundant due to errors occurring when implementing a more OOP approach
+         Navigation Menu
 */
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -108,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
     private void signOut(){
         FirebaseAuth.getInstance().signOut();
         Intent intent = new Intent(this, Login.class);
@@ -115,5 +99,3 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         startActivity(intent);
         finish();
     }}
-
-
