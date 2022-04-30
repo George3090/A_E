@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="176dp"
@@ -8,19 +9,31 @@
     android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher_round"/>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/Nav_UserImage"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@mipmap/ic_launcher_round"
+        app:civ_border_width="1dp"
+        app:civ_border_color="@color/white"
+        />
+
     <TextView
+        android:id="@+id/Nav_UserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="UserName"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+        android:padding="0dp"
+        android:text="Gheroghe Bujac"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textStyle="bold" />
+
     <TextView
+        android:id="@+id/Nav_UserDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="info@fornow"/>
+        android:padding="1dp"
+        android:text="Age: 21"
+        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
 </LinearLayout>

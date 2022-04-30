@@ -105,7 +105,7 @@ public class   Login extends AppCompatActivity implements View.OnClickListener {
      Firebase
        */
     private void setupFirebaseAuth(){
-        //Log.d(TAG, "setupFirebaseAuth: started.");
+       // Log.d(TAG, "setupFirebaseAuth: started.");
 
         firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -180,6 +180,7 @@ public class   Login extends AppCompatActivity implements View.OnClickListener {
     protected void onStart() {
         super.onStart();
         FirebaseAuth.getInstance().addAuthStateListener(firebaseAuthListener);
+
     }
 
     @Override

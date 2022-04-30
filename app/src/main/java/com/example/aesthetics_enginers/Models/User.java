@@ -12,11 +12,13 @@ public class User implements Parcelable {
     private String FullName;
     private String Password;
     private String PhoneNr;
+    private String Profile_Photo_uri;
+    private String temporary;
 
 
 
 
-    public User(String email, String user_id, String username, String age, String FullName, String Password, String PhoneNr) {
+    public User(String email, String user_id, String username, String age, String FullName, String Password, String PhoneNr, String Profile_Photo_uri, String temporary) {
         this.email = email;
         this.user_id = user_id;
         this.username = username;
@@ -24,6 +26,8 @@ public class User implements Parcelable {
         this.FullName = FullName;
         this.Password = Password;
         this.PhoneNr = PhoneNr;
+        this.Profile_Photo_uri = Profile_Photo_uri;
+        this.temporary = temporary;
     }
 
     public User() {
@@ -37,6 +41,8 @@ public class User implements Parcelable {
         age = in.readString();
         FullName=in.readString();
         Password = in.readString();
+        Profile_Photo_uri = in.readString();
+        temporary = in.readString();
 
     }
 
@@ -113,6 +119,20 @@ public class User implements Parcelable {
         this.PhoneNr = PhoneNr;
     }
 
+    public String getProfile_Photo_uri() {
+        return Profile_Photo_uri;
+    }
+
+    public void setProfile_Photo_uri(String PhoneNr) {
+        this.Profile_Photo_uri = Profile_Photo_uri;
+    }
+
+    public String getTemporary() {
+        return temporary;
+    }
+
+
+
 
 
 
@@ -126,6 +146,8 @@ public class User implements Parcelable {
                 ", FullName='" + FullName + '\''+
                 ", Password='" + Password + '\''+
                 ", PhoneNr='" + PhoneNr + '\''+
+                ", Profile_Photo_uri='" + Profile_Photo_uri + '\''+
+                ", temporary='" + temporary + '\''+
                 '}';
     }
 
@@ -143,6 +165,10 @@ public class User implements Parcelable {
         dest.writeString(FullName);
         dest.writeString(Password);
         dest.writeString(PhoneNr);
+        dest.writeString(Profile_Photo_uri);
+        dest.writeString(temporary);
+
+
     }
 
 

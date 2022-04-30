@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.Exercise_Guide_Back">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:id="@+id/Exersice_Guide_Back"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:src="@drawable/e" />
+
+        <Button
+            android:id="@+id/button_Lats"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Lats"
+            android:textSize="11dp"
+            app:layout_constraintBottom_toBottomOf="@+id/Exersice_Guide_Back"
+            app:layout_constraintEnd_toEndOf="@+id/Exersice_Guide_Back"
+            app:layout_constraintHorizontal_bias="0.106"
+            app:layout_constraintStart_toStartOf="@+id/Exersice_Guide_Back"
+            app:layout_constraintTop_toTopOf="@+id/Exersice_Guide_Back"
+            app:layout_constraintVertical_bias="0.114" />
+
+        <Button
+            android:id="@+id/button_Middle_back"
+            android:layout_width="115dp"
+            android:layout_height="48dp"
+            android:text="Middle back"
+            android:textSize="11dp"
+            app:layout_constraintBottom_toBottomOf="@+id/Exersice_Guide_Back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.145"
+            app:layout_constraintStart_toStartOf="@+id/Exersice_Guide_Back"
+            app:layout_constraintTop_toTopOf="@+id/Exersice_Guide_Back"
+            app:layout_constraintVertical_bias="0.263"
+            />
+
+        <Button
+            android:id="@+id/button_Lower_Back"
+            android:layout_width="125dp"
+            android:layout_height="50dp"
+            android:text="Lower Back"
+            android:textSize="11dp"
+            app:layout_constraintBottom_toBottomOf="@+id/Exersice_Guide_Back"
+            app:layout_constraintEnd_toEndOf="@+id/Exersice_Guide_Back"
+            app:layout_constraintHorizontal_bias="0.09"
+            app:layout_constraintStart_toStartOf="@+id/Exersice_Guide_Back"
+            app:layout_constraintTop_toTopOf="@+id/Exersice_Guide_Back"
+            app:layout_constraintVertical_bias="0.421" />
+
+        <Button
+            android:id="@+id/button_Quads"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Quads"
+            android:textSize="11dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/Exersice_Guide_Back"
+            app:layout_constraintHorizontal_bias="0.105"
+            app:layout_constraintStart_toStartOf="@+id/Exersice_Guide_Back"
+            app:layout_constraintTop_toTopOf="@+id/Exersice_Guide_Back"
+            app:layout_constraintVertical_bias="0.597" />
+
+        <Button
+            android:id="@+id/button_Calves"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Calves"
+            android:textSize="11dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/Exersice_Guide_Back"
+            app:layout_constraintHorizontal_bias="0.135"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/Exersice_Guide_Back"
+            app:layout_constraintVertical_bias="0.792" />
+
+        <Button
+            android:id="@+id/button_Hamstrings"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Hamstrings"
+            android:textSize="11dp"
+            app:layout_constraintBottom_toBottomOf="@+id/Exersice_Guide_Back"
+            app:layout_constraintEnd_toEndOf="@+id/Exersice_Guide_Back"
+            app:layout_constraintHorizontal_bias="0.868"
+            app:layout_constraintStart_toStartOf="@+id/Exersice_Guide_Back"
+            app:layout_constraintTop_toTopOf="@+id/Exersice_Guide_Back"
+            app:layout_constraintVertical_bias="0.792" />
+
+        <Button
+            android:id="@+id/button_Glutes"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Glutes"
+            android:textSize="11dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.877"
+            app:layout_constraintStart_toStartOf="@+id/Exersice_Guide_Back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.614" />
+
+        <Button
+            android:id="@+id/button_Triceps"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Triceps"
+            android:textSize="11dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/Exersice_Guide_Back"
+            app:layout_constraintHorizontal_bias="0.879"
+            app:layout_constraintStart_toStartOf="@+id/Exersice_Guide_Back"
+            app:layout_constraintTop_toTopOf="@+id/Exersice_Guide_Back"
+            app:layout_constraintVertical_bias="0.28" />
+
+        <Button
+            android:id="@+id/button_Traps"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Traps"
+            android:textSize="11dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/Exersice_Guide_Back"
+            app:layout_constraintHorizontal_bias="0.879"
+            app:layout_constraintStart_toStartOf="@+id/Exersice_Guide_Back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.079" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
