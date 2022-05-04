@@ -12,6 +12,8 @@
         android:layout_height="fill_parent"
         android:layout_centerHorizontal="true">
 
+
+
         <ImageView
             android:id="@+id/Exersice_Guide_Front"
             android:layout_width="fill_parent"
@@ -141,6 +143,7 @@
             app:layout_constraintStart_toStartOf="@+id/Exersice_Guide_Front"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.079" />
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

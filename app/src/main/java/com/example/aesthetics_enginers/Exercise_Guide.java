@@ -96,6 +96,7 @@ public class Exercise_Guide extends AppCompatActivity implements NavigationView.
 
 
 
+
         mDb = FirebaseFirestore.getInstance();
         docRef = mDb.collection("Exercises").document("823naq9iMzKHaaDubBLG");
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
