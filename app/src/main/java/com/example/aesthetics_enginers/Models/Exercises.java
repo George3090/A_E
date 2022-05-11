@@ -3,6 +3,9 @@ package com.example.aesthetics_enginers.Models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 public class Exercises implements Parcelable {
 
     private String Title;
@@ -12,6 +15,9 @@ public class Exercises implements Parcelable {
     private String Image_1;
     private String Image_2;
     private String Video;
+
+
+
 
     public Exercises(String Title,String Muscle, String Equipment,String Instruction, String Image_1, String Image_2, String Video ){
         this.Title = Title;

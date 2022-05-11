@@ -10,5 +10,8 @@
     <color name="blue">	#000099</color>
     <color name="blueBlack">#2e3554</color>
     <color name="red">#FF0404</color>
+    <color name="grey">#5E5A5A</color>
+    <color name="blue_light">#093BF1</color>
+    <color name="image_tint">#16333744</color>
 
 </resources>

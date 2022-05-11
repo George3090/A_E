@@ -13,44 +13,18 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/slide_image"
-            android:layout_width="372dp"
-            android:layout_height="270dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.41"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.286" />
-
         <TextView
             android:id="@+id/text_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
             android:text="This will be date "
             android:textSize="20dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/slide_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.062"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.452" />
-
-        <Button
-            android:id="@+id/Slide_button"
-            android:layout_width="374dp"
-            android:layout_height="47dp"
-            android:backgroundTint="@color/blue"
-            android:text="Start"
-            android:textColor="@android:color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.567"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/slide_image"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/text_description"
@@ -59,12 +33,105 @@
             android:text="TextView"
             android:textSize="13dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/slide_image"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.058"
+            app:layout_constraintHorizontal_bias="0.060"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_title"
+            app:layout_constraintVertical_bias="0." />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="368dp"
+            android:layout_height="391dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.258" />
+            app:layout_constraintVertical_bias="0.231">
+
+
+
+
+            <Button
+                android:id="@+id/button_continue"
+                android:layout_width="131dp"
+                android:layout_height="56dp"
+                android:background="@drawable/mybutton"
+                android:textColor="@color/white"
+                android:text="Continue"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/Slide_button"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.858"
+                />
+
+            <Button
+                android:id="@+id/Slide_button"
+                android:layout_width="240dp"
+                android:layout_height="56dp"
+                android:background="@drawable/mybutton2"
+                android:text="@string/mark_completed"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="@+id/slide_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.858" />
+
+            <ImageView
+                android:id="@+id/slide_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:srcCompat="@tools:sample/avatars"
+                android:alpha="5"
+                android:foregroundTint="@color/black"
+
+                />
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/slide_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/slide_image"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/htym2cg" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="261dp"
+                android:layout_height="34dp"
+                android:text="Day 1: Quads,Calves,Abs"
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/Slide_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

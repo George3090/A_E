@@ -38,7 +38,6 @@ public class RecycleViewAdapter_Manage_Workouts extends RecyclerView.Adapter<Rec
         // This is where I inflate the layout (giving a loog to our rows)
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.recycle_view_manage_my_workouts, parent, false);
-
         return new RecycleViewAdapter_Manage_Workouts.MyViewHolder(view,manage_workout_interface );
     }
 
@@ -51,8 +50,6 @@ public class RecycleViewAdapter_Manage_Workouts extends RecyclerView.Adapter<Rec
         // String url2= exercises.get(position).getImage_2();
         String url = workouts.get(position).getMain_Image();
         Glide.with(context).load(url).into(holder.imageView); // context may need to be changed to view
-
-
     }
 
     @Override
@@ -73,9 +70,6 @@ public class RecycleViewAdapter_Manage_Workouts extends RecyclerView.Adapter<Rec
             textViewTitle = itemView.findViewById(R.id.Text_View_Title);
             textviewSubHeading = itemView.findViewById(R.id.textView5);
             textView3 = itemView.findViewById(R.id.textView4);
-
-
-
             itemView.findViewById(R.id.button_Remove).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -87,7 +81,6 @@ public class RecycleViewAdapter_Manage_Workouts extends RecyclerView.Adapter<Rec
                             manage_workout_interface.OnWorkoutDelete(pos);
                         }
                     }
-
                 }
             });
 
@@ -96,20 +89,14 @@ public class RecycleViewAdapter_Manage_Workouts extends RecyclerView.Adapter<Rec
                 @Override
                 public void onClick(View v) {
                     // Reset The workout progrees to null
-
                     if(manage_workout_interface != null){
                         int pos = getAdapterPosition();
                         if(pos != RecyclerView.NO_POSITION){
                             manage_workout_interface.OnWorkoutReset(pos);
                         }
                     }
-
-
                 }
             });
-
-
-
         }
     }
 

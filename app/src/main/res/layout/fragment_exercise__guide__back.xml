@@ -26,20 +26,22 @@
         <Button
             android:id="@+id/button_Lats"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button_black"
             android:text="Lats"
+            android:textColor="@color/white"
             android:textSize="11dp"
             app:layout_constraintBottom_toBottomOf="@+id/Exersice_Guide_Back"
             app:layout_constraintEnd_toEndOf="@+id/Exersice_Guide_Back"
-            app:layout_constraintHorizontal_bias="0.106"
+            app:layout_constraintHorizontal_bias="0.105"
             app:layout_constraintStart_toStartOf="@+id/Exersice_Guide_Back"
             app:layout_constraintTop_toTopOf="@+id/Exersice_Guide_Back"
-            app:layout_constraintVertical_bias="0.114" />
+            app:layout_constraintVertical_bias="0.118" />
 
         <Button
             android:id="@+id/button_Middle_back"
             android:layout_width="115dp"
-            android:layout_height="48dp"
+            android:layout_height="40dp"
             android:text="Middle back"
             android:textSize="11dp"
             app:layout_constraintBottom_toBottomOf="@+id/Exersice_Guide_Back"
@@ -48,27 +50,33 @@
             app:layout_constraintStart_toStartOf="@+id/Exersice_Guide_Back"
             app:layout_constraintTop_toTopOf="@+id/Exersice_Guide_Back"
             app:layout_constraintVertical_bias="0.263"
+            android:background="@drawable/button_black"
+            android:textColor="@color/white"
             />
 
         <Button
             android:id="@+id/button_Lower_Back"
             android:layout_width="125dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button_black"
             android:text="Lower Back"
+            android:textColor="@color/white"
             android:textSize="11dp"
             app:layout_constraintBottom_toBottomOf="@+id/Exersice_Guide_Back"
             app:layout_constraintEnd_toEndOf="@+id/Exersice_Guide_Back"
-            app:layout_constraintHorizontal_bias="0.09"
+            app:layout_constraintHorizontal_bias="0.115"
             app:layout_constraintStart_toStartOf="@+id/Exersice_Guide_Back"
             app:layout_constraintTop_toTopOf="@+id/Exersice_Guide_Back"
-            app:layout_constraintVertical_bias="0.421" />
+            app:layout_constraintVertical_bias="0.422" />
 
         <Button
             android:id="@+id/button_Quads"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:text="Quads"
             android:textSize="11dp"
+            android:background="@drawable/button_black"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/Exersice_Guide_Back"
             app:layout_constraintHorizontal_bias="0.105"
@@ -79,9 +87,11 @@
         <Button
             android:id="@+id/button_Calves"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:text="Calves"
             android:textSize="11dp"
+            android:background="@drawable/button_black"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/Exersice_Guide_Back"
             app:layout_constraintHorizontal_bias="0.135"
@@ -89,25 +99,30 @@
             app:layout_constraintTop_toTopOf="@+id/Exersice_Guide_Back"
             app:layout_constraintVertical_bias="0.792" />
 
+
         <Button
             android:id="@+id/button_Hamstrings"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button_black"
             android:text="Hamstrings"
+            android:textColor="@color/white"
             android:textSize="11dp"
             app:layout_constraintBottom_toBottomOf="@+id/Exersice_Guide_Back"
             app:layout_constraintEnd_toEndOf="@+id/Exersice_Guide_Back"
-            app:layout_constraintHorizontal_bias="0.868"
+            app:layout_constraintHorizontal_bias="0.87"
             app:layout_constraintStart_toStartOf="@+id/Exersice_Guide_Back"
             app:layout_constraintTop_toTopOf="@+id/Exersice_Guide_Back"
-            app:layout_constraintVertical_bias="0.792" />
+            app:layout_constraintVertical_bias="0.791" />
 
         <Button
             android:id="@+id/button_Glutes"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:text="Glutes"
             android:textSize="11dp"
+            android:background="@drawable/button_black"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.877"
@@ -118,28 +133,33 @@
         <Button
             android:id="@+id/button_Triceps"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
             android:text="Triceps"
             android:textSize="11dp"
+            android:background="@drawable/button_black"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/Exersice_Guide_Back"
             app:layout_constraintHorizontal_bias="0.879"
             app:layout_constraintStart_toStartOf="@+id/Exersice_Guide_Back"
             app:layout_constraintTop_toTopOf="@+id/Exersice_Guide_Back"
-            app:layout_constraintVertical_bias="0.28" />
+            app:layout_constraintVertical_bias="0.28"
+            android:layout_height="40dp"/>
 
         <Button
             android:id="@+id/button_Traps"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
             android:text="Traps"
+            android:textColor="@color/white"
             android:textSize="11dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/Exersice_Guide_Back"
             app:layout_constraintHorizontal_bias="0.879"
             app:layout_constraintStart_toStartOf="@+id/Exersice_Guide_Back"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.079" />
+            app:layout_constraintVertical_bias="0.092"
+            android:layout_height="40dp"
+            android:background="@drawable/button_black"
+            />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

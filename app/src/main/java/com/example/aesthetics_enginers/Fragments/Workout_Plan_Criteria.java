@@ -28,6 +28,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class Workout_Plan_Criteria extends Fragment implements Ex_RecycleViewInterface{
@@ -67,11 +68,10 @@ public class Workout_Plan_Criteria extends Fragment implements Ex_RecycleViewInt
         return WorkoutView;
     }
 
-
     private void DatabaseEventChangeListener(){
         mDb = FirebaseFirestore.getInstance();
-        exercisesArrayList = new ArrayList<>();
-        mDb.collection("collection_workouts")
+        exercisesArrayList = new ArrayList<>(); //try nested array
+        mDb.collection("collection_workout")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {

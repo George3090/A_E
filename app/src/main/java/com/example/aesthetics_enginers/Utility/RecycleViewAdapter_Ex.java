@@ -26,8 +26,6 @@ public class RecycleViewAdapter_Ex extends RecyclerView.Adapter<RecycleViewAdapt
        this.context = context;
        this.exercises = exercises;
        this.ex_recycleViewInterface = ex_recycleViewInterface;
-
-
    }
 
     @NonNull
@@ -36,7 +34,6 @@ public class RecycleViewAdapter_Ex extends RecyclerView.Adapter<RecycleViewAdapt
         // This is where I inflate the layout (giving a loog to our rows)
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.recycle_view_row, parent, false);
-
         return new RecycleViewAdapter_Ex.MyViewHolder(view,ex_recycleViewInterface);
     }
 
@@ -69,9 +66,6 @@ public class RecycleViewAdapter_Ex extends RecyclerView.Adapter<RecycleViewAdapt
             textViewTitle = itemView.findViewById(R.id.ExTitleView);
             textviewSubHeading = itemView.findViewById(R.id.textViewSubHeading);
             textView3 = itemView.findViewById(R.id.textView3);
-
-
-
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -83,9 +77,6 @@ public class RecycleViewAdapter_Ex extends RecyclerView.Adapter<RecycleViewAdapt
                     }
                 }
             });
-
-
-
         }
     }
 

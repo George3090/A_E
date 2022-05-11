@@ -54,6 +54,7 @@ public class Manage_My_Workouts extends AppCompatActivity implements NavigationV
         adapter = new RecycleViewAdapter_Manage_Workouts(this, exercisesArrayList, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        //Adding dots indicator
 
 
 
@@ -125,7 +126,7 @@ public class Manage_My_Workouts extends AppCompatActivity implements NavigationV
     private void DatabaseEventChangeListener(){
         mDb = FirebaseFirestore.getInstance();
         exercisesArrayList = new ArrayList<>();
-        mDb.collection("collection_workouts")
+        mDb.collection("collection_workout")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {

@@ -1,14 +1,11 @@
 package com.example.aesthetics_enginers.User_Account;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.aesthetics_enginers.MainActivity;
 import com.example.aesthetics_enginers.R;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,7 +28,6 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
-
 import com.example.aesthetics_enginers.Models.User;
 import com.example.aesthetics_enginers.R;
 import com.example.aesthetics_enginers.Utility.UserClient;
@@ -57,8 +53,6 @@ public class   Login extends AppCompatActivity implements View.OnClickListener {
         UserEmailAddress= findViewById(R.id.UserEmailAddress);
         UserPassword= findViewById(R.id.UserPassword);
         progressBar = findViewById(R.id.progressBar);
-
-
         firebaseAuth = FirebaseAuth.getInstance();
         setupFirebaseAuth();
 
@@ -90,16 +84,11 @@ public class   Login extends AppCompatActivity implements View.OnClickListener {
             }
         });
 
-
-
         register = (TextView) findViewById(R.id.register);
         register.setOnClickListener(this);
         ForgotPassword = (TextView) findViewById(R.id.UserForgotPassword);
         ForgotPassword.setOnClickListener(this);
     }
-
-
-
 
     /*
      Firebase
@@ -144,9 +133,6 @@ public class   Login extends AppCompatActivity implements View.OnClickListener {
     }
 
 
-
-
-
     private void showDialog(){
         progressBar.setVisibility(View.VISIBLE);
 
@@ -157,8 +143,6 @@ public class   Login extends AppCompatActivity implements View.OnClickListener {
             progressBar.setVisibility(View.INVISIBLE);
         }
     }
-
-
 
 
     @Override
@@ -173,7 +157,6 @@ public class   Login extends AppCompatActivity implements View.OnClickListener {
                 break;
         }
     }
-
 
 
     @Override
