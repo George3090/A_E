@@ -22,32 +22,33 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
-import com.example.aesthetics_enginers.Interfaces.Ex_RecycleViewInterface;
+import com.example.aesthetics_enginers.Interfaces.Slide_Adapter_Interface;
+import com.example.aesthetics_enginers.Models.Days;
+import com.example.aesthetics_enginers.Models.Schedule;
 import com.example.aesthetics_enginers.Models.User;
 import com.example.aesthetics_enginers.Models.Workout;
 import com.example.aesthetics_enginers.RecycleViews.Workout_Full_Page;
 import com.example.aesthetics_enginers.User_Account.Login;
+import com.example.aesthetics_enginers.User_Account.Profile;
+import com.example.aesthetics_enginers.User_Workout_Tracking.Day_Overview_FullPage;
 import com.example.aesthetics_enginers.Utility.SlideAdapter;
 import com.example.aesthetics_enginers.Utility.UserClient;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentChange;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.FirebaseFirestoreSettings;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, Ex_RecycleViewInterface {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, Slide_Adapter_Interface {
     //Firebase Database
     private FirebaseFirestore mDb;
     private FirebaseDatabase mFirebaseDatabase;
@@ -55,9 +56,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DatabaseReference myRef;
     private User CurrentUser;
     private TextView[] mDots;
-
-
-
     // UI
     private DrawerLayout drawer;
     private ViewPager viewPager;
@@ -67,7 +65,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private TextView Nav_UserDetail;
     private ImageView Nav_UserImage;
     private Button button_seeAllWorkouts;
-    private ArrayList<Workout> exercisesArrayList;
+    private ArrayList<Days> exercisesArrayList;
+
+
     private SlideAdapter adapter;
     private LinearLayout mDotLayout;
 
@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //mDb = FirebaseFirestore.getInstance();
+
         CurrentUser = ((UserClient)(getApplicationContext())).getUser();
         //SLider
         DatabaseEventChangeListener();
@@ -91,19 +92,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         viewPager.addOnPageChangeListener(viewListener);
 
 
-
-
-        //Changing the title of the action bar
-        this.setTitle("Dashboard");
-
         getUserDetails();
-        setUser();
-        set_nav_menu();
-
-
-
-
+        //setUser();
+        //set_nav_menu();
+//        Toast.makeText(MainActivity.this,  CurrentUser.toString() , Toast.LENGTH_SHORT).show();
         //Button
+
         mDb = FirebaseFirestore.getInstance();
         button_seeAllWorkouts = findViewById(R.id.button_seeAllWorkouts);
         button_seeAllWorkouts.setOnClickListener(new View.OnClickListener() {
@@ -114,14 +108,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
 
 
-      //  Toast.makeText(MainActivity.this, exercisesArrayList.toString(),Toast.LENGTH_SHORT).show();
+        Toast.makeText(MainActivity.this, exercisesArrayList.toString(),Toast.LENGTH_SHORT).show();
 
     }
 
 
 
 
-    private void set_nav_menu(){
+    private void set_nav_menu(User user){
         //Nav Menu
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -133,57 +127,41 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
         View header= navigationView.getHeaderView(0);
         Nav_UserName = header.findViewById(R.id.Nav_UserName);
         Nav_UserImage = header.findViewById(R.id.Nav_UserImage);
-        //User user = ((UserClient)(getApplicationContext())).getUser();
-        Nav_UserName.setText(CurrentUser.getFullName());
         Nav_UserDetail = header.findViewById(R.id.Nav_UserDetails);
-        Nav_UserDetail.setText(CurrentUser.getAge());
-        //Prfile Picture
-        Glide.with(this).load(CurrentUser.getProfile_Photo_uri()).into(Nav_UserImage);
+        if(user != null){
+            Nav_UserName.setText(user.getFullName());
+            Nav_UserDetail.setText(user.getAge());
+            //Prfile Picture
+            Glide.with(this).load(user.getProfile_Photo_uri()).into(Nav_UserImage);
+        }
     }
 
 
 
-    private void setUser(){
-        mAuth = FirebaseAuth.getInstance();
-        FirebaseUser user = mAuth.getCurrentUser();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
-                .build();
-        db.setFirestoreSettings(settings);
-        DocumentReference userRef = db.collection("collection_users")
-                .document(user.getUid());
-        userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if(task.isSuccessful()){
-                    Log.d(TAG, "onComplete: successfully set the user client.");
-                    User user = task.getResult().toObject(User.class);
-                    ((UserClient)(getApplicationContext())).setUser(user);
-                }
-            }
-        });
-
-    }
 
     private void getUserDetails() {
-        if (CurrentUser == null) {
-            CurrentUser = new User();
-            DocumentReference userRef = mDb.collection("collection_users").
-                    document(FirebaseAuth.getInstance().getUid());
-            userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    if (task.isSuccessful()) {
-                        User user = task.getResult().toObject(User.class);
-                        ((UserClient) getApplicationContext()).setUser(user);
-                        Toast.makeText(MainActivity.this, "merger " , Toast.LENGTH_SHORT).show();
+        String userID = FirebaseAuth.getInstance().getUid();
+        //Toast.makeText(MainActivity.this, userID , Toast.LENGTH_SHORT).show();
+        mDb.collection("collection_users")
+                .document("M2nfGjb7KLcyOw5WeC7vB84gTFN2")
+                .addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable DocumentSnapshot snapshot, @Nullable FirebaseFirestoreException error) {
+                        if (snapshot != null && snapshot.exists()) {
+                            Log.d(TAG, "Current data: " + snapshot.getData());
+                            User user = snapshot.toObject(User.class);
+                            set_nav_menu(user);
+                        } else {
+                            Log.d(TAG, "Current data: null");
+                        }
+
                     }
-                }
-            });
-        }
+
+                });
 
     }
 
@@ -228,6 +206,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 finish();
                 break;
 
+            case R.id.My_Profile:
+                startActivity(new Intent(getApplicationContext(), Profile.class));
+                finish();
+                break;
+
             case R.id.Sign_Out:
                 signOut();
                 break;
@@ -237,9 +220,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
+
+
     private void DatabaseEventChangeListener(){
-        mDb = FirebaseFirestore.getInstance();
         exercisesArrayList = new ArrayList<>();
+        mDb = FirebaseFirestore.getInstance();
         mDb.collection("collection_users")
                 .document("M2nfGjb7KLcyOw5WeC7vB84gTFN2")
                 .collection("User_Workouts")
@@ -253,7 +238,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         for(DocumentChange dc : value.getDocumentChanges()){
                             if(dc.getType() == DocumentChange.Type.ADDED){
 
-                                exercisesArrayList.add(dc.getDocument().toObject(Workout.class));
+                                Workout workout = dc.getDocument().toObject(Workout.class);
+                                Days days = workout.getSchedule().getDays();
+                                exercisesArrayList.add(days);
+                                String workoutid = dc.getDocument().getId();
+                                dc.getDocument().getData();
+
                             }
                             adapter.notifyDataSetChanged();
                         }
@@ -262,15 +252,47 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 });
     }
 
-    @Override
-    public void OnItemClicked(int position) {
-        Intent intent = new Intent( MainActivity.this , Workout_Full_Page.class); //change MainActivity to added activity
-        intent.putExtra("Title", exercisesArrayList.get(position).getTitle());
-        intent.putExtra("Image_Main", exercisesArrayList.get(position).getMain_Image());
-        intent.putExtra("Img1", exercisesArrayList.get(position).getImg1());
-        intent.putExtra("Img2", exercisesArrayList.get(position).getImg2());
-        startActivity(intent);
-    }
+
+
+//    private void DatabaseEventChangeListenerDay(){
+//        DayArrayList = new ArrayList<>();
+//        mDb.collection("collection_users")
+//                .document("M2nfGjb7KLcyOw5WeC7vB84gTFN2")
+//                .collection("User_Workouts")
+//                .document(
+//
+//
+//                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+//                        if(error != null){
+//                            Log.e("Firestore error",error.getMessage());
+//                            return;
+//                        }
+//                        for(DocumentChange dc : value.getDocumentChanges()){
+//                            if(dc.getType() == DocumentChange.Type.ADDED){
+//
+//                                exercisesArrayList.add(dc.getDocument().toObject(Workout.class));
+//                            }
+//                            adapter.notifyDataSetChanged();
+//                        }
+//
+//                    }
+//                });
+//    }
+
+
+
+
+//    @Override
+//    public void OnItemClicked(int position) {
+////        Intent intent = new Intent( MainActivity.this , Workout_Full_Page.class); //change MainActivity to added activity
+////        intent.putExtra("Title", exercisesArrayList.get(position).getTitle());
+////        intent.putExtra("Image_Main", exercisesArrayList.get(position).getMain_Image());
+////        intent.putExtra("Img1", exercisesArrayList.get(position).getImg1());
+////        intent.putExtra("Img2", exercisesArrayList.get(position).getImg2());
+////        startActivity(intent);
+//    }
 
 
 
@@ -317,7 +339,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     };
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+            CurrentUser = ((UserClient)(getApplicationContext())).getUser();
+}
 
+
+    @Override
+    public void OnStartWorkout(int position) {
+        Intent intent = new Intent( MainActivity.this , Day_Overview_FullPage.class); //change MainActivity to added activity
+        intent.putExtra("Title", exercisesArrayList.get(position).getDay_Title());
+        intent.putExtra("Image_Main", exercisesArrayList.get(position).getDay_Image());
+        //intent.putExtra("Day_Description", exercisesArrayList.get(position).getDay_Description());
+
+
+        startActivity(intent);
+
+    }
+
+    @Override
+    public void OnMarkWorkoutCoompleted(int position) {
+
+
+    }
 }
 
 //
@@ -341,3 +386,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //                    }
 //                });
 //    }
+
+
+
+//    private void setUser(){
+//        mAuth = FirebaseAuth.getInstance();
+//        FirebaseUser user = mAuth.getCurrentUser();
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+//                .build();
+//        db.setFirestoreSettings(settings);
+//        DocumentReference userRef = db.collection("collection_users")
+//                .document(user.getUid());
+//        userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//                if(task.isSuccessful()){
+//                    Log.d(TAG, "onComplete: successfully set the user client.");
+//                    User user = task.getResult().toObject(User.class);
+//                    ((UserClient)(getApplicationContext())).setUser(user);
+//                }
+//            }
+//        });
+//
+//    }.
+

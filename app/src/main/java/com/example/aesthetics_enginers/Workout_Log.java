@@ -22,8 +22,6 @@ public class Workout_Log extends AppCompatActivity implements NavigationView.OnN
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout__log);
-        //Changing the title of the action bar
-        this.setTitle("Workouts");
 
         //Changing the title of the action bar
         this.setTitle("Workouts Log");

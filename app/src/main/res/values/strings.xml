@@ -5,5 +5,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="mark_completed">Mark Completed</string>
+    <string name="button_text_fat">9%Body Fat</string>
+    <string name="title_activity_testact">testact</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+
 
 </resources>

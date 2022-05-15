@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Aesthetics_Enginers">
-        <activity android:name=".RecycleViews.Workout_Full_Page"></activity>
+        <activity android:name=".User_Workout_Tracking.Day_Overview_FullPage"></activity>
+        <activity android:name=".RecycleViews.Workout_Full_Page" />
         <activity android:name=".RecycleViews.Exercise_Guide_Full_Page" />
         <activity android:name=".RecycleViews.Exercise_Guide_RecycleView" />
         <activity android:name=".User_Account.Profile" />

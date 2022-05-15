@@ -44,8 +44,24 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.069"
-                app:title="Workout Plans"
-                />
+                >
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="150dp"
+                        android:gravity="center"
+                        android:text="Workout Plans"
+                        android:textColor="@android:color/white"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
 
             <Button
                 android:id="@+id/button_AllMuscle"
@@ -61,14 +77,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar"
                 app:layout_constraintVertical_bias="1.0"
-                android:background="@drawable/button_black"
+                android:background="@drawable/buttonworkoutsblack"
                 android:textColor="@color/white"/>
 
             <Button
                 android:id="@+id/button_MuscleBuilding"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_black"
+                android:background="@drawable/buttonworkoutsblack"
                 android:text="Muscle Building"
                 android:textColor="@color/white"
                 android:textSize="12dp"
@@ -85,7 +101,7 @@
                 android:id="@+id/button_WeignLoss"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_black"
+                android:background="@drawable/buttonworkoutsblack"
                 android:text="Weight Loss"
                 android:textColor="@color/white"
                 android:textSize="12dp"

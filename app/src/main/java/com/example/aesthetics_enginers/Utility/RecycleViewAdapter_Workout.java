@@ -36,7 +36,6 @@ public class RecycleViewAdapter_Workout extends RecyclerView.Adapter<RecycleView
         // This is where I inflate the layout (giving a loog to our rows)
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.recycle_view_workouts, parent, false);
-
         return new RecycleViewAdapter_Workout.MyViewHolder(view,ex_recycleViewInterface );
     }
 

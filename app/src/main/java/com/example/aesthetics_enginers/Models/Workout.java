@@ -1,8 +1,13 @@
 package com.example.aesthetics_enginers.Models;
 
+import com.google.firebase.firestore.PropertyName;
+
 import java.util.Map;
 
+import kotlinx.coroutines.SchedulerTaskKt;
+
 public class Workout {
+    @PropertyName("Title")
     String Title;
     String Main_Image;
     String Duration;
@@ -11,9 +16,11 @@ public class Workout {
     String Img1;
     String Img2;
     String img3;
+    @PropertyName("Schedule")
+    Schedule schedule;
 
 
-    public Workout(String title, String main_Image, String duration, String experience_Level, String description, String img1, String img2, String img3) {
+    public Workout(String title, String main_Image, String duration, String experience_Level, String description, String img1, String img2, String img3, Schedule schedule) {
         Title = title;
         Main_Image = main_Image;
         Duration = duration;
@@ -22,8 +29,8 @@ public class Workout {
         Img1 = img1;
         Img2 = img2;
         this.img3 = img3;
+        this.schedule = schedule;
     }
-
 
     public Workout(){
 
@@ -93,7 +100,13 @@ public class Workout {
         this.img3 = img3;
     }
 
+    public Schedule getSchedule() {
+        return schedule;
+    }
 
+    public void setSchedule(Schedule schedule) {
+        this.schedule = schedule;
+    }
 
     @Override
     public String toString() {
@@ -106,6 +119,7 @@ public class Workout {
                 ", Img1='" + Img1 + '\'' +
                 ", Img2='" + Img2 + '\'' +
                 ", img3='" + img3 + '\'' +
+                ", schedule=" + schedule +
                 '}';
     }
 }
